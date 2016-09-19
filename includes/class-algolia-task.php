@@ -67,7 +67,7 @@ class Algolia_Task
 			'post_type'      => self::$post_type,
 			'post_status'    => 'private',
 			'order'          => 'ASC',
-			'orderby'        => 'ID',
+			'orderby'        => 'ID', 
 			'posts_per_page' => 1,
 		) );
 		

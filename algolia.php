@@ -68,4 +68,10 @@ register_deactivation_hook( __FILE__, 'deactivate_algolia' );
 
 require_once ALGOLIA_PATH . 'classmap.php';
 
-$algolia = new Algolia_Plugin( plugin_dir_path( __FILE__ ), plugin_dir_url( __FILE__ ) );
+$algolia = Algolia_Plugin::get_instance();
+
+if ( defined('WP_CLI') && WP_CLI ) {
+	include plugin_dir_path( __FILE__ ) . '/includes/class-algolia-cli.php';
+	WP_CLI::add_command( 'algolia', new Algolia_CLI() );
+}
+
